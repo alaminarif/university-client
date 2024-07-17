@@ -24,7 +24,7 @@ const Login = () => {
     password: "123456",
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     const toastId = toast.loading("Logging in");
     try {
       const userInfo = {
