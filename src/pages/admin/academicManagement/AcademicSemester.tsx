@@ -3,13 +3,13 @@ import type { TableColumnsType, TableProps } from "antd";
 import { TAcademicSemester } from "../../../types/academicManagement.type";
 import { TQueryParam } from "../../../types/global";
 import { useState } from "react";
-import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagement.api";
+import { useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
 
 export type TTableData = Pick<TAcademicSemester, "name" | "year" | "startMonth" | "endMonth">;
 
 const AcademicSemester = () => {
   const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
-  const { data: semesterData, isLoading, isFetching } = useGetAllSemesterQuery(params);
+  const { data: semesterData, isLoading, isFetching } = useGetAllSemestersQuery(params);
 
   console.log({ isLoading, isFetching });
 
