@@ -81,8 +81,8 @@ const studentDefaultValues = {
     address: "789 Pine St, Villageton",
   },
 
-  admissionSemester: "65bb60ebf71fdd1add63b1c0",
-  academicDepartment: "65b4acae3dc8d4f3ad83e416",
+  admissionSemester: "66c4766299030a6ab9cde410",
+  academicDepartment: "65cde634f73bcf9cbaf39287",
 };
 
 const CreateStudent = () => {
@@ -127,7 +127,6 @@ const CreateStudent = () => {
       <Col span={24}>
         <PHForm onSubmit={onSubmit} defaultValues={studentDefaultValues}>
           <Divider>Personal Info.</Divider>
-
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="name.firstName" label="First Name" />
@@ -158,9 +157,7 @@ const CreateStudent = () => {
               />
             </Col>
           </Row>
-
           <Divider>Contact Info.</Divider>
-
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="email" label="Email" />
@@ -178,9 +175,7 @@ const CreateStudent = () => {
               <PHInput type="text" name="permanentAddress" label="Permanent Address" />
             </Col>
           </Row>
-
           <Divider>Guardian</Divider>
-
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="guardian.fatherName" label="Father Name" />
@@ -201,9 +196,7 @@ const CreateStudent = () => {
               <PHInput type="text" name="guardian.motherContactNo" label="Mother ContactNo" />
             </Col>
           </Row>
-
           <Divider>Local Guardian</Divider>
-
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="localGuardian.name" label="Name" />
@@ -218,14 +211,11 @@ const CreateStudent = () => {
               <PHInput type="text" name="localGuardian.address" label="Address" />
             </Col>
           </Row>
-
           <Divider>Academic Info.</Divider>
-
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHSelect options={semesterOptions} disabled={sIsLoading} name="admissionSemester" label="Admission Semester" />
             </Col>
-
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHSelect options={departmentOptions} disabled={dIsLoading} name="academicDepartment" label="Admission Department" />
             </Col>
