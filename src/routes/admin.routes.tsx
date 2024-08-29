@@ -1,4 +1,3 @@
-// import { ReactNode } from "react";
 import AdminDashboard from "../pages/admin/userManagement/AdminDashboard";
 import CreateAdmin from "../pages/admin/userManagement/CreateAdmin";
 import CreateFaculty from "../pages/admin/userManagement/CreateFaculty";
