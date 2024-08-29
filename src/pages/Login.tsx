@@ -22,12 +22,12 @@ const Login = () => {
 
   const defaultValues = {
     //admin
-    // userId: "A-00001",
-    // password: "123456",
+    userId: "A-00001",
+    password: "123456",
 
     //student
-    userId: "2024020006",
-    password: "111222",
+    // userId: "2024020006",
+    // password: "111222",
   };
 
   const onSubmit = async (data: FieldValues) => {
@@ -41,13 +41,16 @@ const Login = () => {
       const res = await login(userInfo).unwrap();
       const user = verifyToken(res.data.accessToken) as TUser;
 
-      console.log(user);
+      console.log(res);
 
       dispatch(setUser({ user: user, token: res.data.accessToken }));
 
       toast.success("logged in", { id: toastId, duration: 2000 });
-
-      navigate(`/${user.role}/dashboard`);
+      if (res.data.needsPasswordChange) {
+        navigate(`/change-password`);
+      } else {
+        navigate(`/${user.role}/dashboard`);
+      }
     } catch (error) {
       toast.error("Something went wrong", { id: toastId });
     }

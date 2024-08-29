@@ -3,8 +3,9 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { facultyPaths } from "../../routes/faculty.routes";
 import { studentPaths } from "../../routes/student.routes";
 import { useAppSelector } from "../../redux/hooks";
-import { SelectCurrentUser } from "../../redux/features/auth/authSlice";
+import { TUser, userCurrentToken } from "../../redux/features/auth/authSlice";
 import { adminPaths } from "../../routes/admin.routes";
+import { verifyToken } from "../../utils/verifyToken";
 
 const { Sider } = Layout;
 
@@ -15,11 +16,16 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const user = useAppSelector(SelectCurrentUser);
+  const token = useAppSelector(userCurrentToken);
+
+  let user;
+  if (token) {
+    user = verifyToken(token);
+  }
 
   let sidebarItems;
 
-  switch (user!.role) {
+  switch ((user as TUser).role) {
     case userRole.ADMIN:
       sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
       break;

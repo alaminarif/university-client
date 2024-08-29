@@ -20,6 +20,7 @@ const OfferCourse = () => {
   const [courseId, setCourseId] = useState("");
 
   const [addOfferedCourse] = useCreateOfferedCourseMutation();
+  console.log(addOfferedCourse);
 
   const { data: semesterRegistrationData } = useGetAllRegisteredSemetersQuery([
     { name: "sort", value: "year" },
@@ -46,8 +47,9 @@ const OfferCourse = () => {
 
   const academicDepartmentOptions = academicDepartmentData?.data?.map((item) => ({
     value: item._id,
-    label: item.name,
+    label: item.title,
   }));
+  console.log(semesterRegistrationData);
 
   const courseOptions = coursesData?.data?.map((item: any) => ({
     value: item._id,
