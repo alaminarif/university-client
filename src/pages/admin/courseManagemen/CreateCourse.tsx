@@ -16,7 +16,7 @@ const CreateCourse = () => {
     value: item._id,
     label: item.title,
   }));
-
+  console.log(preRequisiteCoursesOptions);
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.loading("Creating...");
 

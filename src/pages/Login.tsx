@@ -22,11 +22,11 @@ const Login = () => {
 
   const defaultValues = {
     //admin
-    userId: "A-00001",
-    password: "123456",
+    userId: "A-0001",
+    // password: "123456",
 
     //student
-    // userId: "2024020006",
+    // userId: "2024010001",
     // password: "111222",
   };
 

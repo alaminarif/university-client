@@ -9,7 +9,7 @@ const MySchedule = () => {
       {data?.data?.map((item) => {
         return (
           <div>
-            <div>{item.course.title}</div>
+            <div>{item.course.name}</div>
             <div>{item.offeredCourse.section}</div>
             <div>
               {item.offeredCourse.days.map((item) => (

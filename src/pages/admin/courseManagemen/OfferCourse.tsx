@@ -42,24 +42,27 @@ const OfferCourse = () => {
 
   const academicFacultyOptions = academicFacultyData?.data?.map((item) => ({
     value: item._id,
-    label: item.title,
+    label: item.name,
   }));
 
   const academicDepartmentOptions = academicDepartmentData?.data?.map((item) => ({
     value: item._id,
-    label: item.title,
+    label: item.name,
   }));
-  console.log(semesterRegistrationData);
+  // console.log(semesterRegistrationData);
 
   const courseOptions = coursesData?.data?.map((item: any) => ({
     value: item._id,
     label: item.title,
   }));
+  // console.log(courseOptions);
 
   const facultiesOptions = facultiesData?.data?.faculties?.map((item: any) => ({
     value: item._id,
     label: item.fullName,
   }));
+
+  console.log(facultiesData);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const offeredCourseData = {
@@ -79,10 +82,15 @@ const OfferCourse = () => {
       <Col span={6}>
         <PHForm onSubmit={onSubmit}>
           <PHSelect name="semesterRegistration" label="Semester Registrations" options={semesterRegistrationOptions} />
+
           <PHSelect name="academicFaculty" label="Academic Faculty" options={academicFacultyOptions} />
+
           <PHSelect name="academicDepartment" label="Academic Department" options={academicDepartmentOptions} />
+
           <PHSelectWithWatch onValueChange={setCourseId} options={courseOptions} name="course" label="Course" />
+
           <PHSelect disabled={!courseId || fetchingFaculties} name="faculty" label="Faculty" options={facultiesOptions} />
+
           <PHInput type="text" name="section" label="Section" />
           <PHInput type="text" name="maxCapacity" label="Max Capacity" />
           <PHSelect mode="multiple" options={weekDaysOptions} name="days" label="Days" />

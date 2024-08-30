@@ -22,6 +22,7 @@ export type TOfferedCourse = {
 };
 
 export type TCourse = {
+  name: any;
   _id: string;
   title: string;
   prefix: string;

@@ -14,7 +14,7 @@ export type TSemester = {
 
 export type TCourse = {
   _id: string;
-  title: string;
+  name: string;
   prefix: string;
   code: number;
   credits: number;
